@@ -1,0 +1,47 @@
+# 🏗️ Architecture Diagram
+
+```mermaid
+flowchart TD
+
+    subgraph User["👤 End User"]
+        A[Browser / Mobile App]
+    end
+
+    subgraph Frontend["🌐 Frontend"]
+        B[React / Next.js UI]
+    end
+
+    subgraph Backend["⚙️ Backend"]
+        C[Node.js / Express API]
+    end
+
+    subgraph Data["🗄️ Data Layer"]
+        D[(Supabase / PostgreSQL)]
+        E[(AWS S3 / Storage)]
+    end
+
+    subgraph Auth["🔐 Authentication"]
+        F[Firebase Auth / Auth0]
+    end
+
+    subgraph Workflow["⏱️ Automation"]
+        G[n8n / BullMQ]
+    end
+
+    subgraph Payment["💳 Billing"]
+        H[Stripe / SSLCommerz]
+    end
+
+    subgraph Monitoring["📊 Monitoring"]
+        I[Sentry / Datadog]
+    end
+
+    %% Connections
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    C --> F
+    C --> G
+    C --> H
+    C --> I
